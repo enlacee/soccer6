@@ -69,7 +69,7 @@ Ext.define('MyApp.view.Main', {
 				]
 			},
 			{
-				title: 'Equipo 2',
+				title: 'E 2',
 				iconCls: 'team',
 				ui: 'plain',
 
@@ -77,7 +77,7 @@ Ext.define('MyApp.view.Main', {
 					{
 						docked: 'top',
 						xtype: 'titlebar',
-						title: 'Getting Started'
+						title: 'Equipo 2'
 					},
 					{
 						xtype: 'video',
@@ -87,7 +87,7 @@ Ext.define('MyApp.view.Main', {
 				]
 			},
 			{
-				title: 'Equipo 3',
+				title: 'E 3',
 				iconCls: 'team',
 				ui: 'plain',
 
@@ -95,7 +95,7 @@ Ext.define('MyApp.view.Main', {
 					{
 						docked: 'bottom',
 						xtype: 'titlebar',
-						title: 'hi new'
+						title: 'Equipo 3'
 					},
 					{
 						xtype: 'video',
