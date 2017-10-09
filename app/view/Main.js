@@ -7,72 +7,99 @@ Ext.define('MyApp.view.Main', {
 	],
 	config: {
 		tabBarPosition: 'bottom',
-
 		items: [
 			{
 				title: 'E 1',
 				iconCls: 'team',
 				ui: 'plain',
-
-				styleHtmlContent: true,
 				scrollable: false,
-
-// layout: {
-//         type: 'hbox',
-//         align: 'start',
-//         pack: 'start'
-//     },
-
-				items: [
+				layout: 'fit',
+				renderTo: 'one',
+				items:[
 					{
-						docked: 'top',
-						xtype: 'titlebar',
-						title: 'Equipo 1'
-					},
-					{
-						xtype: 'container',
-						// html: 'Pack: ',
-						style: 'background-color:red',
-						docked: 'top',
-						// fullscreen: true,
-						layout: 'hbox',
-						items: [
-							{ xtype: 'button', text: 'Btn 1', margin: 2, flex: 1 },
-							{ xtype: 'button', text: 'Btn 2', margin: 2 , flex: 1 },
+						xtype:"tabpanel",
+						activeTab:0,
+						items:[
+							{
+							xtype:"panel",
+							title:"Equipo 1",
+							layout: 'vbox',
+							margin: '2',
+							items:[
+							{
+								flex: 2,
+								items: [
+									{
+										layout: 'hbox',
+										height: '100%',
+										items: [
+											{ xtype: 'button', iconCls: 'user', flex: 1, margin: '0 1 2 0'},
+											{ xtype: 'button', text: '2', flex: 1, margin: '0 0 2 1'},
+										]
+									}
+								]
+							},
+							{
+								flex: 2,
+								items: [
+									{
+										layout: 'hbox',
+										height: '100%',
+										items: [
+											{ xtype: 'button', text: '3', flex: 1, margin: '0 1 2 0'},
+											{ xtype: 'button', text: '4', flex: 1, margin: '0 0 2 1'},
+										]
+									}
+								]
+							},
+							{
+								flex: 2,
+								items: [
+									{
+										layout: 'hbox',
+										height: '100%',
+										items: [
+											{ xtype: 'button', text: '5', flex: 1, margin: '0 1 2 0'},
+											{ xtype: 'button', text: '6', flex: 1, margin: '0 0 2 1'},
+										]
+									}
+								]
+							},
+							{
+								flex: 1,
+								items: [
+										{
+											xtype: 'container',
+											layout: {
+												type: 'hbox',
+												align: 'stretch',
+												pack: 'start'
+											},
+											height: '100%',
+											items: [
+												{ xtype: 'button', text: 'Pagar todos', flex: 1 },
+											]
+										},
+								]
+							},
+							]
+							},
+							// {
+							// 	xtype:"panel",
+							// 	title:"Two"
+							// },
+							// {
+							// 	xtype:"panel",
+							// 	title:"Three"
+							// }
 						]
-					},
-					{
-						xtype: 'container',
-						style: 'background-color:blue',
-						docked: 'top',
-						layout: 'hbox',
-						items: [
-							{ xtype: 'button', text: 'Btn 1', margin: 2, flex: 1 },
-							{ xtype: 'button', text: 'Btn 2', margin: 2 , flex: 1 },
-						]
-					},
-					{
-						xtype: 'container',
-						style: 'background-color:blue',
-						docked: 'top',
-						layout: 'hbox',
-						items: [
-							{ xtype: 'button', text: 'Btn 1', margin: 2, flex: 1},
-							{ xtype: 'button', text: 'Btn 2', margin: 2 , flex: 1},
-						]
-					},
-
-					// { xtype: 'button', text: 'Btn 1', margin: 2, docked: 'top', flex: 1},
-					// { xtype: 'button', text: 'Btn 1', margin: 3, height: 50, flex: 1, docked: 'top', style: 'color: yellow;background-color: #5E99CC;'},
-					// { xtype: 'button', text: 'Btn 2', margin: 3, height: 50, flex: 1, docked: 'top'},
-					// { xtype: 'button', text: 'Btn 3', margin: 3, height: 50, flex: 1, docked: 'top'}
+					}
 				]
 			},
 			{
 				title: 'E 2',
 				iconCls: 'team',
 				ui: 'plain',
-
 				items: [
 					{
 						docked: 'top',
