@@ -1,4 +1,4 @@
-function _20c1ba7a5b16c464b002e168f7743b126df6660e(){};/*
+function _33daf411c35079aa71a446400ce790b8f999f576(){};function _20c1ba7a5b16c464b002e168f7743b126df6660e(){};/*
     This file is generated and updated by Sencha Cmd. You can edit this file as
     needed for your application, but these edits will have to be merged by
     Sencha Cmd when it performs code generation tasks such as generating new
@@ -19,6 +19,10 @@ Ext.application({
 
     views: [
         'Main'
+    ],
+
+    controllers: [
+    	'Main'
     ],
 
     icon: {
