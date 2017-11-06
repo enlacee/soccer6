@@ -8,6 +8,9 @@ Ext.define('MyApp.view.ViewThePopUp', {
 		modal: true,
 		hideOnMaskTap: true,
 		width:'90%',
+
+		refButtonId: false,
+
 		items: [
 			{
 				xtype: 'titlebar',
@@ -59,8 +62,38 @@ Ext.define('MyApp.view.ViewThePopUp', {
 								text: 'Guardar',
 								ui: 'confirm',
 								handler: function () {
-									var myForm = Ext.ComponentQuery.query('formpanel')[0];
-									console.log( myForm.getValues() );
+									// var myForm = Ext.ComponentQuery.query('formpanel')[0];
+									var refForm = this.up('formpanel');
+									var data = refForm.getValues();
+									var refPopUp = this.up('viewthepopup');
+									var refButton = this.up('viewthebutton');
+									console.log('viewthepopup', refPopUp.getCls());
+									console.log('viewthepopup.getRefButtonId', refPopUp.getRefButtonId());
+
+
+									if (data.firstName.length > 0) {
+										data.id = refPopUp.getRefButtonId();
+
+										Ext.Ajax.request({
+											url : jsVars.ajaxUrl + '/appview/user',
+											params: data,
+											method : "POST",
+											success : function( response, request ) {
+												//console.log("success -- response: "+response.responseText);
+												refPopUp.hide();
+												console.log('refPopUp', refPopUp);
+												console.log('refButton', refButton);
+												console.log('refForm', refForm);
+
+												console.log(refPopUp.getId());
+											},
+											failure : function( response, request ) {
+												//console.log("failed -- response: "+response.responseText);
+											}
+										});
+									} else {
+										Ext.Msg.alert('Error!', 'Ingrese el nombre del jugador');
+									}
 								}
 							}
 						]

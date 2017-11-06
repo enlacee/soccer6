@@ -7,10 +7,11 @@ Ext.define('MyApp.controller.Main', {
 
 	config: {
 		refs: {
-			mibotonref: 'button[ui=black]',
+			miboton: 'button[ui=black]',
+			mipopup: 'viewthepopup',
 		},
 		control: {
-			mibotonref: {
+			miboton: {
 				tap: 'miAccion',
 			}
 		}
@@ -18,14 +19,16 @@ Ext.define('MyApp.controller.Main', {
 
 	//called when the Application is launched, remove if not needed
 	launch: function(app) {
-
+		var popup = Ext.widget('viewthepopup');
+		Ext.Viewport.add(popup);
+		popup.hide();
 	},
 
 	miAccion: function(boton) {
-		var me = this;
-		var popup = Ext.widget('Viewthepopup'); // Get reference of the panel popup
+		var popup = this.getMipopup(); // popup.setCls('');
+		// console.log('xxx', popup.items.items[0].setTitle('pepito'));
+		popup.setRefButtonId(boton.getId());
 		popup.showBy(boton);
-		Ext.Viewport.add(popup);
-		// Ext.Viewport.add({ xtype: 'viewthepopup'});
+		popup.show();
 	}
 });

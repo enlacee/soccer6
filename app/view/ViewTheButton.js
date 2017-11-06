@@ -18,6 +18,7 @@ Ext.define('MyApp.view.ViewTheButton', {
 								items: [
 									{
 										xtype: 'button',
+										// text: 'Nombre',
 										iconCls: 'user',
 										flex: 1,
 										margin: '0 1 2 0',
