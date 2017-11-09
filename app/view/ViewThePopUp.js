@@ -9,7 +9,8 @@ Ext.define('MyApp.view.ViewThePopUp', {
 		hideOnMaskTap: true,
 		width:'90%',
 
-		refButtonId: false,
+		refButton: false,
+		refUserModel: false,
 
 		items: [
 			{
@@ -23,16 +24,29 @@ Ext.define('MyApp.view.ViewThePopUp', {
 				name: 'MyForm',
 				title: 'User Form',
 				height: 280,
-				// url: 'save-form.php',
-				url: 'add_user',
+				url: 'save-form.php',
+				// listener: {
+				// 	'> field': {
+				// 		change: function(field, newValue, oldValue){
+				// 			var refPopUp = this.up('viewthepopup');
+				// 			var model = getRefUserModel();
+				// 			model.set(field.getFullName(), newValue);
+				// 		}
+				// 	}
+				// },
 				items: [
 					{
 						xtype: 'fieldset',
 						items: [
 							{
+								xtype: 'hiddenfield',
+								name: 'id',
+								allowBlank: false,
+								vtype: 'alpha',
+							},
+							{
 								xtype: 'textfield',
-								name: 'firstName',
-								id: 'firstName',
+								name: 'fullName',
 								allowBlank: false,
 								vtype: 'alpha',
 								placeHolder: 'Nombre',
@@ -44,15 +58,15 @@ Ext.define('MyApp.view.ViewThePopUp', {
 								items: [
 									{
 										xtype: 'radiofield',
-										name : 'statusPayment',
-										value: 0,
+										name : 'paid',
+										value: false,
 										label: 'No',
 										checked: true,
 									},
 									{
 										xtype: 'radiofield',
-										name : 'statusPayment',
-										value: 1,
+										name : 'paid',
+										value: true,
 										label: 'Si',
 									},
 								]
@@ -62,35 +76,26 @@ Ext.define('MyApp.view.ViewThePopUp', {
 								text: 'Guardar',
 								ui: 'confirm',
 								handler: function () {
-									// var myForm = Ext.ComponentQuery.query('formpanel')[0];
 									var refForm = this.up('formpanel');
-									var data = refForm.getValues();
 									var refPopUp = this.up('viewthepopup');
-									var refButton = this.up('viewthebutton');
-									console.log('viewthepopup', refPopUp.getCls());
-									console.log('viewthepopup.getRefButtonId', refPopUp.getRefButtonId());
+									var refButton = refPopUp.getRefButton();
 
+									// set user to form
+									var model = refPopUp.getRefUserModel();
+									var data = refForm.getValues();
+									model.set('fullName', data.fullName);
+									model.set('paid', data.paid);
+									var errors = model.validate();
 
-									if (data.firstName.length > 0) {
-										data.id = refPopUp.getRefButtonId();
+									if (errors.isValid() === true) {
 
-										Ext.Ajax.request({
-											url : jsVars.ajaxUrl + '/appview/user',
-											params: data,
-											method : "POST",
-											success : function( response, request ) {
-												//console.log("success -- response: "+response.responseText);
-												refPopUp.hide();
-												console.log('refPopUp', refPopUp);
-												console.log('refButton', refButton);
-												console.log('refForm', refForm);
-
-												console.log(refPopUp.getId());
-											},
-											failure : function( response, request ) {
-												//console.log("failed -- response: "+response.responseText);
+										model.save({
+											success: function(model) {
+												console.log("Saved Ed! His ID is "+ model.getId());
 											}
 										});
+										refPopUp.hide();
+
 									} else {
 										Ext.Msg.alert('Error!', 'Ingrese el nombre del jugador');
 									}
