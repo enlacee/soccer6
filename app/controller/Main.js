@@ -30,7 +30,8 @@ Ext.define('MyApp.controller.Main', {
 		// add model to form
 		var idUser = boton.getId().match(/\d+/).join();
 		var modelUser = Ext.create('MyApp.model.User', {
-			id: idUser,
+			// id: idUser,
+			idSecondary: idUser,
 			fullName: '',
 			paid: false
 		});

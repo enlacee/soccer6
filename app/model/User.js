@@ -3,9 +3,10 @@ Ext.define('MyApp.model.User', {
 	config: {
 		idProperty: 'id',
 		fields: [
-			{name: 'id',		type: 'int'},
-			{name: 'fullName',	type: 'string'},
-			{name: 'paid',		type: 'boolean'}
+			{name: 'id',			type: 'int'},
+			{name: 'idSecondary',	type: 'int'},
+			{name: 'fullName',		type: 'string'},
+			{name: 'paid',			type: 'boolean'}
 		],
 
 		validations: [
@@ -16,11 +17,22 @@ Ext.define('MyApp.model.User', {
 
 		proxy: {
 			type: 'rest',
-			url: jsVars.ajaxUrl + '/appview/user',
-			render: {
+			url: jsVars.ajaxUrl + '/appview/users',
+			reader: {
 				type: 'json',
 				root: 'users'
-			}
+			},
+			// withCredentials: true
 		}
+
+
+		// proxy: {
+		// 	type: 'rest',
+		// 	url: jsVars.ajaxUrl + '/appview/user',
+		// 	render: {
+		// 		type: 'json',
+		// 		root: 'users'
+		// 	}
+		// }
 	}
 });
