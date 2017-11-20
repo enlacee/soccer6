@@ -1,0 +1,74 @@
+Ext.define('MyApp.view.Main',
+{
+	extend: 'Ext.Container',
+	xtype: 'main',
+	requires:
+	[
+		'Ext.TitleBar',
+		'Ext.form.Panel',
+		'Ext.List',
+		'Ext.navigation.View',
+		'Ext.Component',
+		'Ext.Panel'
+	],
+
+	config:
+	{
+		layout: 'fit',
+		items: [
+			{
+				xtype: 'titlebar',
+				docked: 'top',
+				title: 'title',
+				items: [{
+					iconCls: 'list',
+					align: 'left',
+					ui: 'plain',
+					handler: function(){
+
+						var con1 = Ext.ComponentQuery.query( 'container > #container1' )[0];
+						var draggable = Ext.ComponentQuery.query( 'container > #navContainer' )[0];
+						if ( con1.element.hasCls( 'out' ) ) {
+							draggable.hide( { type: 'slideOut', direction: 'left', duration: 500 } );
+							con1.element.removeCls('out').addCls('in');
+						} else {
+							con1.element.removeCls('in').addCls('out');
+							draggable.show({type:'slideIn', direction:'right', duration : 500});
+
+						}
+					}
+				}]
+			},
+			{
+				xtype: 'container',
+				layout: 'hbox',
+				itemId: 'container1',
+				items: [{
+					xtype: 'container',
+					layout: 'card',
+					width: 250,
+					hidden: true,
+					itemId: 'navContainer',
+					style: 'position: absolute; top: 0; left: 0; height: 100%;z-index: 2',
+					zIndex : 1,
+					items: [{
+						xtype: 'list',
+						itemTpl: '{title}',
+						data: [
+							{ title: 'Item 1' },
+							{ title: 'Item 2' },
+							{ title: 'Item 3' },
+							{ title: 'Item 4' }
+						]
+					}]
+				},
+				{
+					xtype: 'container',
+					itemId: 'mainContainer',
+
+					width: '100%',
+					html: 'Main content area'
+			}]
+		}]
+	}
+});
