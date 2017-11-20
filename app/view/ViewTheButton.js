@@ -20,10 +20,12 @@ Ext.define('MyApp.view.ViewTheButton', {
 										xtype: 'button',
 										// text: 'Nombre',
 										iconCls: 'user',
+										// iconAlign: 'right',
 										flex: 1,
 										margin: '0 1 2 0',
 										cls: 'payReservation',
-										ui: 'black'
+										ui: 'black',
+
 									},
 									{
 										xtype: 'button',

@@ -8,7 +8,7 @@ Ext.define('MyApp.view.ViewThePopUp', {
 		modal: true,
 		hideOnMaskTap: true,
 		width:'90%',
-
+		// vars refers
 		refButton: false,
 		refUserModel: false,
 
@@ -24,16 +24,6 @@ Ext.define('MyApp.view.ViewThePopUp', {
 				name: 'MyForm',
 				title: 'User Form',
 				height: 280,
-				url: 'save-form.php',
-				// listener: {
-				// 	'> field': {
-				// 		change: function(field, newValue, oldValue){
-				// 			var refPopUp = this.up('viewthepopup');
-				// 			var model = getRefUserModel();
-				// 			model.set(field.getFullName(), newValue);
-				// 		}
-				// 	}
-				// },
 				items: [
 					{
 						xtype: 'fieldset',
@@ -46,11 +36,23 @@ Ext.define('MyApp.view.ViewThePopUp', {
 							},
 							{
 								xtype: 'textfield',
-								name: 'fullName',
+								name: 'name',
+								// styleHtmlContent: true,
+								cls: 'inputFullName',
 								allowBlank: false,
 								vtype: 'alpha',
 								placeHolder: 'Nombre',
-								styleHtmlCls:true
+								autoComplete: false,
+								autoCapitalize: false,
+								maxLength: 15,
+								listeners:{
+									painted: function() {
+										this.focus();
+									},
+									change: function(field, newValue, oldValue){
+										field.setValue(newValue.toLowerCase());
+									}
+								}
 							},
 							{
 								xtype: 'fieldset',
@@ -59,14 +61,14 @@ Ext.define('MyApp.view.ViewThePopUp', {
 									{
 										xtype: 'radiofield',
 										name : 'paid',
-										value: false,
+										value: 0,
 										label: 'No',
 										checked: true,
 									},
 									{
 										xtype: 'radiofield',
 										name : 'paid',
-										value: true,
+										value: 1,
 										label: 'Si',
 									},
 								]
@@ -83,15 +85,19 @@ Ext.define('MyApp.view.ViewThePopUp', {
 									// set user to form
 									var model = refPopUp.getRefUserModel();
 									var data = refForm.getValues();
-									model.set('fullName', data.fullName);
+									model.set('name', data.name);
 									model.set('paid', data.paid);
-									var errors = model.validate();
 
-									if (errors.isValid() === true) {
-
+									var errors = model.validate(); // console.log('All Errors:', errors.items);
+									if ( errors.isValid() === true ) {
 										model.save({
-											success: function(model) {
-												console.log("Saved Ed! His ID is "+ model.getId());
+											success: function( model ) {
+												refButton.setText( model.get( 'name' ) );
+												if ( model.get( 'paid' ) === 1 ) {
+													refButton.setStyle( 'color: green' );
+												} else {
+													refButton.setStyle( 'color: black' );
+												}
 											}
 										});
 										refPopUp.hide();

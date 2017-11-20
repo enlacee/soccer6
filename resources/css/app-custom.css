@@ -1,0 +1,6 @@
+/**
+* popup
+*/
+.inputFullName input{
+	text-transform: lowercase;
+}

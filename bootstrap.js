@@ -668,7 +668,13 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
-  "MyApp.view.Main": []
+  "MyApp.controller.Main": [],
+  "MyApp.model.User": [],
+  "MyApp.store.User": [],
+  "MyApp.view.Main": [],
+  "MyApp.view.ViewTheButton": [],
+  "MyApp.view.ViewThePopUp": [],
+  "MyApp.view.ViewThePopUpForm": []
 });
 
 Ext.ClassManager.addNameAliasMappings({
@@ -1397,8 +1403,21 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
+  "MyApp.controller.Main": [],
+  "MyApp.model.User": [],
+  "MyApp.store.User": [],
   "MyApp.view.Main": [
     "widget.main"
+  ],
+  "MyApp.view.ViewTheButton": [
+    "widget.viewthebutton"
+  ],
+  "MyApp.view.ViewThePopUp": [
+    "widget.Viewthepopup",
+    "widget.viewthepopup"
+  ],
+  "MyApp.view.ViewThePopUpForm": [
+    "widget.viewthepopupform"
   ]
 });
 
