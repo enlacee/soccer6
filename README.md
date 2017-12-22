@@ -27,3 +27,4 @@ Add this:
 	# Use for update bootstrap.js and load the css in your app.js
 	sencha app refresh
 
+	sencha app build production
