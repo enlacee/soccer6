@@ -3,3 +3,7 @@ app/resources/sass/.sass-cache
 app/build
 
 .directory
+
+
+# no follow api repository
+app/api
