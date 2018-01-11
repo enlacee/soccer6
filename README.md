@@ -28,3 +28,11 @@ Add this:
 
 	# Use for update bootstrap.js and load the css in your app.js
 	sencha app refresh
+
+
+### Developer start guide
+
+`app/api` this is to simbol directory => SLIM PHP
+Comand for generate:
+
+	ln -s /var/www/html/api.soccer6/app/api /var/www/html/api.soccer6/app/public/
