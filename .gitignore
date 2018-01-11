@@ -1,4 +1,5 @@
-#
-build
-resources/sass/.sass-cache/*
+# no following
+app/resources/sass/.sass-cache
+app/build
+
 .directory

@@ -23,8 +23,8 @@ Add this:
 
 	sencha web start
 	sencha app watch
-	
-	# Use for update bootstrap.js and load the css in your app.js
-	sencha app refresh
 
 	sencha app build production
+
+	# Use for update bootstrap.js and load the css in your app.js
+	sencha app refresh
