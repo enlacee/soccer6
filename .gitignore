@@ -6,4 +6,4 @@ app/build
 
 
 # no follow api repository
-app/api
+#app/api
