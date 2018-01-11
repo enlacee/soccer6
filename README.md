@@ -35,4 +35,4 @@ Add this:
 `app/api` this is to simbol directory => SLIM PHP
 Comand for generate:
 
-	ln -s /var/www/html/api.soccer6/app/api /var/www/html/api.soccer6/app/public/
+	ln -s /var/www/html/soccer6/app/api /var/www/html/api.soccer6/app/public/
