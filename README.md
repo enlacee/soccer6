@@ -30,6 +30,12 @@ Add this:
 	sencha app refresh
 
 
+For prouction no alert
+
+	sencha help app build
+	sencha app build production
+
+
 ### Developer start guide
 
 `app/api` this is to simbol directory => SLIM PHP
