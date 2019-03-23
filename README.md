@@ -4,6 +4,25 @@ Fútbol 6 with Sencha Touch 2.1 and higher
 
 ![screenshot](http://i64.tinypic.com/vnpnpw.png)
 
+## Developer start guide
+
+La aplicacion tiene 2 aplicaciones que funcionan como cliente(Web javascript) y servidor(APIREST)
+
+### CLIENT JS (INTERFAZ WEB Y MOBILE)
+
+Esta elaborado y creado con SENCHA TOUCH
+
+	app/build/production/MyApp/index.html
+
+### SERVIDOR PHP (APIREST)
+
+`app/apiREST` this use the framework SLIM PHP
+
+	app/apiREST/app/public/index.php
+
+
+
+
 ### Config bash `.bashrc`
 Install all dependecies like (nodejs=node, ruby, java, jre)
 
@@ -67,15 +86,4 @@ Generating Views
 	sencha -sdk /path/to/sencha-touch-sdk generate app MyApp /path/to/www/myapp
 
 
-### Developer start guide
-
-La aplicacion tiene 2 aplicaciones que funcionan como cliente(Web javascript) y servidor(APIREST)
-
-#### CLIENT JS (INTERFAZ WEB Y MOBILE)
-
-Esta elaborado y creado con SENCHA TOUCH
-
-#### SERVIDOR PHP (APIREST)
-
-`app/apiREST` this use the framework SLIM PHP
 
