@@ -4,6 +4,3 @@ app/build
 .directory
 *.log
 
-
-# no follow api repository
-#app/api
