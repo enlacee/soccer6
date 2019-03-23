@@ -69,7 +69,13 @@ Generating Views
 
 ### Developer start guide
 
-#### APIREST
+La aplicacion tiene 2 aplicaciones que funcionan como cliente(Web javascript) y servidor(APIREST)
+
+#### CLIENT JS (INTERFAZ WEB Y MOBILE)
+
+Esta elaborado y creado con SENCHA TOUCH
+
+#### SERVIDOR PHP (APIREST)
 
 `app/apiREST` this use the framework SLIM PHP
 
