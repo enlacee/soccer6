@@ -6,7 +6,7 @@ Fútbol 6 with Sencha Touch 2.1 and higher
 
 ## Developer start guide
 
-La repositorio tiene 2 aplicaciones que funcionan como cliente(Web javascript) y como servidor(APIREST)
+El repositorio tiene 2 aplicaciones que funcionan como cliente(Web javascript) y como servidor(APIREST)
 
 ### CLIENT JS (INTERFAZ WEB Y MOBILE)
 
