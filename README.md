@@ -51,16 +51,6 @@ Generating Views
 	
 	sencha which
 
-### Developer start guide
-
-`app/api` this is to simbol directory => SLIM PHP
-Comand for generate:
-
-	ln -s /var/www/html/soccer6/app/api /var/www/html/api.soccer6/app/public/
-
-
-
-
 ### crear aplicacion sencha cmd con EXTJS
 
 	sencha -sdk /path/to/ext6 generate app MyApp /path/to/my-app
@@ -75,3 +65,11 @@ Comand for generate:
 
 	# si ya lo tienes especificado el PATH del SDK por linea de comando
 	sencha -sdk /path/to/sencha-touch-sdk generate app MyApp /path/to/www/myapp
+
+
+### Developer start guide
+
+#### APIREST
+
+`app/apiREST` this use the framework SLIM PHP
+
