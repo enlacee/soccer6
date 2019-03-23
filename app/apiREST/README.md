@@ -10,26 +10,26 @@ Fútbol 6 with Slim 3 with SQLITE
 Crear la configuración.
 
 ``` php
-	'db' => [
-		'host' => 'localhost',
-		'user' => 'pepe',
-		'pass' => '',
-		'dbname' => 'anb_soccer6',
-	],
+'db' => [
+	'host' => 'localhost',
+	'user' => 'pepe',
+	'pass' => '',
+	'dbname' => 'anb_soccer6',
+],
 ```
 
 02. (Usado) En `api/app/src/dependencies.php` configurarción de base de datos SQLITE.
 
 ``` php
-	// database
-	$container['db'] = function ($c) {
-		$db = $c->get('settings')['db'];
-		$pdo = new PDO("mysql:host=" . $db['host'] . ";dbname=" . $db['dbname'],
-			$db['user'], $db['pass']);
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-		return $pdo;
-	};
+// database
+$container['db'] = function ($c) {
+	$db = $c->get('settings')['db'];
+	$pdo = new PDO("mysql:host=" . $db['host'] . ";dbname=" . $db['dbname'],
+		$db['user'], $db['pass']);
+	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+	return $pdo;
+};
 ```
 
 ### Install
