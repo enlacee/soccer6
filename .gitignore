@@ -1,8 +1,8 @@
 # no following
 app/resources/sass/.sass-cache
 app/build
-
 .directory
+*.log
 
 
 # no follow api repository
